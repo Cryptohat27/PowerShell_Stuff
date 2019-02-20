@@ -1,9 +1,8 @@
 ﻿    Write-Host "**********************************************************************************`n
             
     Powershell New AD User Script`n
-       Writen By: Zachary Milot`n
-	Fixed By: Spencer Bischof
-         Special thanks to William Stevens for helping edit loop`n
+       Writen By: Spencer Bischof
+         
             
     **********************************************************************************`n"
 ##Imports the Active Directory module in order to be able to use the New-ADUser Cmdlet
@@ -258,24 +257,14 @@
     #DeExt = default extension aka the last 4 of the phone number of the service center. This is here if one wanted to have code that created users with an extension equivilent to the last 4 digits of the service centers phone number
                                     {($_ -eq "MA") -or ($_ -eq "Mass") -or ($_ -eq "Massachusetts")} {Write-Warning "Invalid response: Enter City of Service Center (Franklin or Salisbury)"
                                                 continue serviceloop}
-                                    {($_ -eq "F") -or ($_ -eq "Franklin")} {
-                                            $Local = "MA"
-                                            $Address = "19 National Drive"
-                                            $ServCity = "Franklin"
-                                            $Zip = "02038"
+                                    {($_ -eq "F") -or ($_ -eq "generic")} {
+                                            $Local = "generic"
+                                            $Address = "generic"
+                                            $ServCity = "generic"
+                                            $Zip = "generic"
                                             $PhoneArea = "(508) 966-"
-                                            $DeExt = "6000"
-                                            $Fax = "(508) 966-4861"
-                                            }
-
-                                    {($_ -eq "S") -or ($_ -eq "Salisbury")} {
-                                            $Local = "MA"
-                                            $Address = "114 Bridge Road"
-                                            $ServCity = "Salisbury"
-                                            $Zip = "01952"
-                                            $PhoneArea = "(978) 465-"
-                                            $DeExt = "1595"
-                                            $Fax = "(978) 465-2050"
+                                            $DeExt = "generic"
+                                            $Fax = "generic"
                                             }
 
 
@@ -283,127 +272,7 @@
                                             Write-Warning "Invalid response: Enter City of Service Center (S. Burlington, Burlington, or Williston)"
                                             continue serviceloop
                                             }
-                                    {($_ -eq "S. Burlington") -or ($_ -eq "S.Burlington") -or ($_ -eq "SBurlington") -or ($_ -eq "Southb") -or ($_ -eq "SouthBurlington") -or ($_ -eq "South Burlington")} {
-                                            $Local = "VT"
-                                            $Address = "40 San Remo Drive"
-                                            $ServCity = "South Burlington"
-                                            $Zip = "05403"
-                                            $PhoneArea = "(802) 863-"
-                                            $DeExt = "5300"
-                                            $Fax = "(802) 863-0005"
-                                            }
-
-                                    "Burlington" {
-                                            $Local = "VT"
-                                            $Address = "2 Flynn Ave"
-                                            $ServCity = "Burlington"
-                                            $Zip = "05401"
-                                            $PhoneArea = "(802) 488-"
-                                            $DeExt = "8100"
-                                            $Fax = "(802) 488-3950"
-                                            }
-                                    "Williston" {
-                                            $Local = "VT"
-                                            $Address = "54 Avenue D"
-                                            $ServCity = "Williston"
-                                            $Zip = "05495"
-                                            $PhoneArea = "(802) 860-"
-                                            $DeExt = "1200"
-                                            $Fax = "(802) 860-7202"}
-
-
-                                    {($_ -eq "ME") -or ($_ -eq "Maine")} {
-                                            Write-Warning "Invalid response: Enter City of Service Center (S. Portland or Portland)"
-                                            continue serviceloop
-                                            }
-                                    "Portland" {
-                                            $Local = "ME"
-                                            $Address = "31 Waldron Way"
-                                            $ServCity = "Portland"
-                                            $Zip = "04103"
-                                            $PhoneArea = "(207) 878-"
-                                            $DeExt = "3031"
-                                            $Fax = "(207) 878-3043"
-                                            }
-
-                                    {($_ -eq "S. Portland") -or ($_ -eq "S.Portland") -or ($_ -eq "SPortland") -or ($_ -eq "Southp") -or ($_ -eq "SouthPortland") -or ($_ -eq "South Portland")} {
-                                            $Local = "ME"
-                                            $Address = "106 Main Street"
-                                            $ServCity = "South Portland"
-                                            $Zip = "04106"
-                                            $PhoneArea = "(207) 799-"
-                                            $DeExt = "0850"
-                                            $Fax = "(207) 799-5565"
-                                            }
-
-
-                                    {($_ -eq "NH") -or ($_ -eq "New Hampshire")} {
-                                            Write-Warning "Invalid response: Enter City of Service Center (Portsmith or Pembroke)"
-                                            continue serviceloop
-                                            }
-                                    "Portsmith" {
-                                            $Local = "NH"
-                                            $Address = "141 Banfield Road, Suite 11"
-                                            $ServCity = "Portsmith"
-                                            $Zip = "03801"
-                                            $PhoneArea = "(603) 436-"
-                                            $DeExt = "2364"
-                                            $Fax = "(603) 436-2386"
-                                            }
-
-                                    "Pembroke" {
-                                            $Local = "NH"
-                                            $Address = "709 Keith Avenue"
-                                            $ServCity = "Pembroke"
-                                            $Zip = "03275"
-                                            $PhoneArea = "(603) 410-"
-                                            $DeExt = "1150"
-                                            $Fax = "(603) 410-1151"
-                                            }
-
-
-                                    {($_ -eq "CT") -or ($_ -eq "Connecticut") -or ($_ -eq "Durham")} {
-                                            $Local = "CT"
-                                            $Address = "92 Commerce Circle"
-                                            $ServCity = "Durham"
-                                            $Zip = "06422"
-                                            $PhoneArea = "(203) 268-"
-                                            $DeExt = "7046"
-                                            $Fax = "(203) 268-7105"
-                                            }
-
-
-                                    {($_ -eq "NJ") -or ($_ -eq "New Jersey") -or ($_ -eq "NewJersey") -or ($_ -eq "Kearny")} {
-                                            $Local = "NJ"
-                                            $Address = "9 Basin Drive, Suite 190"
-                                            $ServCity = "Kearny"
-                                            $Zip = "07032"
-                                            $PhoneArea = "(973) 344-"
-                                            $DeExt = "2309"
-                                            $Fax = "(508) 966-4861"}
-
-
-                                    {($_ -eq "FL") -or ($_ -eq "Florida") -or ($_ -eq "Tampa")} {
-                                            $Local = "FL"
-                                            $Address = "4015 W Osborne Avenue"
-                                            $ServCity = "Tampa"
-                                            $Zip = "33614"
-                                            $PhoneArea = "(813) 817-"
-                                            $DeExt = "2613"
-                                            $Fax = "(813) 871-2942"
-                                            }
-
-
-                                    {($_ -eq "NY") -or ($_ -eq "New York") -or ($_ -eq "NewYork") -or ($_ -eq "Albany")} {
-                                            $Local = "NY"
-                                            $Address = "14 Walker Way, Unit 3"
-                                            $ServCity = "Albany"
-                                            $Zip = "12205"
-                                            $PhoneArea = "(518) 464-"
-                                            $DeExt = "7622"
-                                            $Fax = "(518) 464-7633"
-                                            }
-
+                                  
                                     default {
                                         Write-Warning "Invalid response: Please enter the state that the service center is in"
                                         continue serviceloop
@@ -501,19 +370,19 @@
 
 ##This is where a user defines what company the user will be a part of this affects two fields the company field in the new ad user creation, and the email address domain name
                         :serviceloop while(1) {
-                            $Company = Read-Host "Enter Company (ENPRO, TMC Environmental)"
+                            $Company = Read-Host "Enter Company (company, Company)"
                             switch ($Company)
                                 {
-                                    {($_ -eq "ENPRO") -or ($_ -eq "EN") -or ($_ -eq "E") -or ($_ -eq "EPRO")} {
-                                            $Company = "ENPRO"
-                                            $emailending = "enpro.com"
+                                    {($_ -eq "Company") -or ($_ -eq "Company") -or ($_ -eq "Company") -or ($_ -eq "Company")} {
+                                            $Company = "Company"
+                                            $emailending = "Company.com"
                                             }
-                                    {($_ -eq "TMC Environmental") -or ($_ -eq "TMC") -or ($_ -eq "T")} {
-                                            $Company = "TMC Environmental"
-                                            $emailending = "tmcenvironmental.com"
+                                    {($_ -eq "Company") -or ($_ -eq "Company") -or ($_ -eq "Company")} {
+                                            $Company = "Company"
+                                            $emailending = "Company"
                                             }
                                     default {
-                                        Write-Warning "Invalid response: Enter FUll, TMC or T or ENPRO, EN or E"
+                                        Write-Warning "Invalid response: Enter options"
                                         continue serviceloop
                                     }
                                 }
@@ -582,72 +451,11 @@
  
             
             
-            New-Item -type directory -path "\\leia\Users\$User"
+            New-Item -type directory -path "\\hardlinkpath\path"
             
             Start-Process  "C:\acl-grant.bat"
            
-            #takeown /F "\\leia\Users\$User" /R /D Y
-            #THis script below adds everyone but doesn't add the user
-            <#
-            $acl = Get-ACL \\leia\users\$User
-            #$permission = "Everyone","Read,Write","CountainerInherit, ObjectInherit","None" ,"Allow"
-            $Rule = New-Object System.Security.AccessControl.FileSystemAccessRule (
-                "mainoffice\$user",
-                "FullControl",  # Access enumeration string/numeric value
-                "ContainerInherit, ObjectInherit", # InheritanceFlags (apply to sub folders and files)
-                "None",  # PropagationFlags (None simply means that this will apply to the object)
-                "Allow"  # ACE type
-            )
-            $acl.SetAccessRule($rule)
-            $acl | Set-Acl \\leia\users\$User
-            #>
-            
-             
-            
-        #Set AD Home Folder path.
-        #This code gets the ad user listed in the filer and runs a separate process  that for each object
-                # will set the home directory to the folder
-               <#
-               $users = Import-CSV users.csv
-                     Foreach ($user in $users){
-                        $userObject = Get-ADUser -Identity $user
-                        $userObject.homeDrive = "Z:"
-                        $userObject.homeDirectory = "\\leia\users\$($userObject.SamAccountName)"
-                        $userObject | Set-ADUser
-                    }
-                   #>
-
-
-
-
-            #Set AD Home Folder path.
-            #This code gets the ad user listed in the filer and runs a seprate process  that for each object
-            # will set the home directory to the folder
-            #Get-ADUser -Filter * -SearchBase $User | Foreach-Object {
-             #   $sam = $_.SamAccountName
-              #  Set-ADuser -Identity $_ -HomeDrive "Z:" -HomeDirectory "\\leia\users\$sam"
-            #}
-
-            #set command to activity the folder permission function will comment out to test
-            #Set-FolderPerms -User "$User" -DC "mainoffice.hazmatt.com" -Path "\\Leia\users\$User"
-            
-            #Get-Acl \\leia\Users\"$User" | Add-AccessControlEntry -Principal Everyone -FolderRights Write -Apply
-
-            <#$Acl = Get-Acl "\\leia\Users\$User"
-            #commented out AR object to test .opperator for access rule
-            #$Ar = New-Object system.security.accesscontrol.filesystemaccessrule("$User","FullControl","Allow")
-            $ar.AddAccessRule((New-Object System.Security.AccessControl.FileSystemAccessRule("$User","Modify", "ContainerInherit, ObjectInherit", "InheritOnly", "Allow")))
-            $Acl.SetAccessRule($ar)
-            Set-Acl "\\leia\Users\$User" $Acl
-               
-            New-Item -type directory -path "\\leia\Users\$User"    
-            $acl = Get-Acl \\leia\Users\$user
-            $permission = "mainoffice\$User","FullControl","Allow"
-            #$accessRule = New-Object System.Security.AccessControl.FileSystemAccessRule $permission
-            $acl.SetAccessRule($accessRule) = New-Object System.Security.AccessControl.FileSystemAccessRule $permission 
-            $acl | Set-Acl \\leia\Users\$User
-            #>
-           
+        
 
 ##CSV Creation for logging of what users information was sent to the New-ADUser cmdlet        
     #Create a Timestamp for CSV
@@ -686,319 +494,27 @@
 
 #>
                 switch ($Local){
-                    "MA" {
-                            if ($Dept -eq "Accounting"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
+                    "state" {
+                            if ($Dept -eq "generic"){
+                                    $Path = "OU=generic,OU=generic,DC=generic,DC=generic,DC=generic"
                                     }
-                            elseif ($Dept -eq "Field Services"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Operations"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Transportation and Disposal"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Project Management"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Supervisors and Foremen"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Human Resources"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Information Technology"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Marketing"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Sales"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Health and Safety"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            else    {
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
+                            elseif ($Dept -eq "generic"){
+                                    $Path = "OU=generic,OU=generic,DC=generic,DC=generic,DC=generic"
                                     }
                             }
                      
 
-                    "VT" {
-                            if ($Dept -eq "Accounting"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
+                    "state" {
+                            if ($Dept -eq "generic"){
+                                    $Path = "OU=generic,OU=generic,DC=generic,DC=generic,DC=generic"
                                     }
-                            elseif ($Dept -eq "Field Services"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
+                            elseif ($Dept -eq "generic"){
+                                    $Path = "OU=generic,OU=generic,DC=generic,DC=generic,DC=generic"
                                     }
-                            elseif ($Dept -eq "Operations"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Transportation and Disposal"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Project Management"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Supervisors and Foremen"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Human Resources"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Information Technology"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Marketing"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Sales"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Health and Safety"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            else    {
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
+                            
                             }
 
-                        "ME" {
-                            if ($Dept -eq "Accounting"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Field Services"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Operations"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Transportation and Disposal"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Project Management"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Supervisors and Foremen"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Human Resources"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Information Technology"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Marketing"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Sales"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Health and Safety"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            else    {
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            }
-
-                        "NH" {
-                            if ($Dept -eq "Accounting"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Field Services"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Operations"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Transportation and Disposal"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Project Management"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Supervisors and Foremen"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Human Resources"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Information Technology"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Marketing"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Sales"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Health and Safety"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            else    {
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            }
-
-                        "CT" {
-                            if ($Dept -eq "Accounting"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Field Services"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Operations"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Transportation and Disposal"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Project Management"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Supervisors and Foremen"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Human Resources"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Information Technology"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Marketing"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Sales"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Health and Safety"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            else    {
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            }
-
-                        "NJ" {
-                            if ($Dept -eq "Accounting"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Field Services"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Operations"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Transportation and Disposal"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Project Management"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Supervisors and Foremen"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Human Resources"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Information Technology"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Marketing"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Sales"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Health and Safety"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            else    {
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            }
-
-                        "FL" {
-                            if ($Dept -eq "Accounting"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Field Services"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Operations"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Transportation and Disposal"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Project Management"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Supervisors and Foremen"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Human Resources"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Information Technology"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Marketing"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Sales"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Health and Safety"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            else    {
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            }
-
-                        "NY" {
-                            if ($Dept -eq "Accounting"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Field Services"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Operations"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Transportation and Disposal"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Project Management"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Supervisors and Foremen"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Human Resources"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Information Technology"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Marketing"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Sales"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            elseif ($Dept -eq "Health and Safety"){
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            else    {
-                                    $Path = "OU=New Users,OU=TMC,DC=MainOffice,DC=hazmatt,DC=com"
-                                    }
-                            }
-                      
+                         
                   
                     default {
                         Write-Warning "An Error Has Occurred, where the department entered does not have a match
@@ -1028,30 +544,13 @@
 
 ##Add more group associations based on location of service center
                     switch ($Local){
-                            "MA" {
-                                    Add-ADGroupMember -Identity "MA" -Members $User
+                            "state" {
+                                    Add-ADGroupMember -Identity "state" -Members $User
                                     }
-                            "VT" {
-                                    Add-ADGroupMember -Identity "VT" -Members $User
+                            "state" {
+                                    Add-ADGroupMember -Identity "state" -Members $User
                                     }
-                            "ME" {
-                                    Add-ADGroupMember -Identity "ME" -Members $User
-                                    }
-                            "NH" {
-                                    Add-ADGroupMember -Identity "NH" -Members $User
-                                    }
-                            "CT" {
-                                    Add-ADGroupMember -Identity "CT" -Members $User
-                                    }
-                            "NJ" {
-                                    Add-ADGroupMember -Identity "NJ" -Members $User
-                                    }
-                            "FL" {
-                                    Add-ADGroupMember -Identity "FL" -Members $User
-                                    }
-                            "NY" {
-                                    Add-ADGroupMember -Identity "NY" -Members $User
-                                    }
+                            
 
                             default {
                                 Write-Warning "An Error Has Occurred: State doesnt exist as a group"
@@ -1066,62 +565,16 @@
 #>
                     switch ($Dept)
                            {
-                            "Accounting" {
-                                    Add-ADGroupMember -Identity "Accounting" -Members $User
-                                    Add-ADGroupMember -Identity "Timberline" -Members $User
+                            "department" {
+                                    Add-ADGroupMember -Identity "identity" -Members $User
+                                    
                                          }
-                            "Field Services" {
-                                    Add-ADGroupMember -Identity "Notify" -Members $User
+                            "department" {
+                                    Add-ADGroupMember -Identity "identity" -Members $User
                                     }
-                            "Operations" {
-                                    Add-ADGroupMember -Identity "logistics" -Members $User
-                                    Add-ADGroupMember -Identity "Project Managers" -Members $User
-                                         }
-                            "Transportation and Disposal" {
-                                    Add-ADGroupMember -Identity "fm" -Members $User
-                                    Add-ADGroupMember -Identity "Notify" -Members $User
-                                    Add-ADGroupMember -Identity "logistics" -Members $User
-                                    Add-ADGroupMember -Identity "Project Managers" -Members $User
-                                    Add-ADGroupMember -Identity "PM" -Members $User
-                                    Add-ADGroupMember -Identity "sc" -Members $User
-                                    Add-ADGroupMember -Identity "Timberline" -Members $User
-                                    Add-ADGroupMember -Identity "TMC Retail" -Members $User
-                                    Add-ADGroupMember -Identity "TND" -Members $User
-                                    Add-ADGroupMember -Identity "xtramart" -Members $User
-                                         }
-                            "Project Management" {
-                                    Add-ADGroupMember -Identity "Notify" -Members $User
-                                    Add-ADGroupMember -Identity "logistics" -Members $User
-                                    Add-ADGroupMember -Identity "Project Managers" -Members $User
-                                    Add-ADGroupMember -Identity "PM" -Members $User
-                                    Add-ADGroupMember -Identity "Timberline" -Members $User
-                                         }
-                            "Human Resources" {
-                                    Add-ADGroupMember -Identity "HSC" -Members $User
-                                    Add-ADGroupMember -Identity "Project Managers" -Members $User
-                                         }
-                            "Information Technology" {
-                                    Add-ADGroupMember -Identity "Marketing" -Members $User
-                                    Add-ADGroupMember -Identity "Project Managers" -Members $User
-                                         }
-                            "Marketing" {
-                                    Add-ADGroupMember -Identity "Marketing" -Members $User
-                                    Add-ADGroupMember -Identity "marketingadmin" -Members $User
-                                    Add-ADGroupMember -Identity "Steam" -Members $User
-                                    Add-ADGroupMember -Identity "Project Managers" -Members $User
-                                         }
-                            "Sales" {
-                                    Add-ADGroupMember -Identity "Marketing" -Members $User
-                                    Add-ADGroupMember -Identity "logistics" -Members $User
-                                    Add-ADGroupMember -Identity "Project Managers" -Members $User
-                                    Add-ADGroupMember -Identity "Steam" -Members $User
-                                         }
-                            "Supervisors and Foremen" {
-                                    Add-ADGroupMember -Identity "Project Managers" -Members $User
-                                         }
-                            "Health and Safety" {
-                                    Add-ADGroupMember -Identity "Notify" -Members $User
-                                         }
+                            "department" {
+                                    Add-ADGroupMember -Identity "identity" -Members $User
+ 
                             default {
                                 Write-Warning "An Error Has Occurred."
                                 break
@@ -1136,8 +589,7 @@
                     add-pssnapin Microsoft.Exchange.Management.PowerShell.E2010
                     Enable-Mailbox -Identity $EmailAddress
                     }
-                    
- 
+                   
 
 
 ##Tell the user that the account creation has been done, but not nessasarily successfull (errors can happen in the backround with this script, so make sure user is created in New Users if possible)            

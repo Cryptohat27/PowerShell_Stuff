@@ -1,5 +1,6 @@
 ﻿#  Script name:    FileSearch.ps1
-#  Created on:     09/02/0215
+#  Created on:     09/02/2015
+# Last update      11/10/2019
 #  Author:         Spencer Bischof
 #  Purpose:        Searches drive for files with specific strings in the filename (usually the file extension) and creates a report.
  

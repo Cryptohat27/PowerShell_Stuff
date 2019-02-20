@@ -1,5 +1,6 @@
 ﻿#  Script name:    UserFolderPermissionFix.ps1
 #  Created on:     09/02/2015
+#  Last Update:    12/15/2019
 #  Author:        Spencer Bischof
 #  Purpose:        Repairs ownership on profile or user home folders to which the administrator has no access.
  

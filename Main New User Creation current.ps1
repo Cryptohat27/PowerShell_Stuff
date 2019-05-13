@@ -255,9 +255,9 @@
                             switch ($Local)
                                 { 
     #DeExt = default extension aka the last 4 of the phone number of the service center. This is here if one wanted to have code that created users with an extension equivilent to the last 4 digits of the service centers phone number
-                                    {($_ -eq "MA") -or ($_ -eq "Mass") -or ($_ -eq "Massachusetts")} {Write-Warning "Invalid response: Enter City of Service Center (Franklin or Salisbury)"
+                                    {($_ -eq "MA") -or ($_ -eq "Mass") -or ($_ -eq "Massachusetts")} {Write-Warning "Invalid response: Enter City of Service Center (Generic)"
                                                 continue serviceloop}
-                                    {($_ -eq "F") -or ($_ -eq "generic")} {
+                                    {($_ -eq "g") -or ($_ -eq "generic")} {
                                             $Local = "generic"
                                             $Address = "generic"
                                             $ServCity = "generic"
@@ -269,7 +269,7 @@
 
 
                                     {($_ -eq "VT") -or ($_ -eq "Vermont")} {
-                                            Write-Warning "Invalid response: Enter City of Service Center (S. Burlington, Burlington, or Williston)"
+                                            Write-Warning "Invalid response: Enter City of Service Centerp"
                                             continue serviceloop
                                             }
                                   
@@ -327,7 +327,7 @@
 
 
 
-##This defines the phone number to be phone area code and middle 3 digits and the last four of the phone number which is either the default, defined by the service center location, or the users extension if the above field is enabled
+##This defines the phone number to be phone area code and middle 3 digits and the last four of the phone number which is either the default,  the users extension if the above field is enabled
                         $Phone = $PhoneArea + $Ext
 
 
